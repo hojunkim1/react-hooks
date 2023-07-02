@@ -1,13 +1,13 @@
 function usePreventLeave() {
-  const listener = (event) => {
+  const onBeforeUnloadHandler = (event) => {
     event.preventDefault();
     event.returnValue = "";
   };
   const enablePrevent = () => {
-    window.addEventListener("beforeunload", listener);
+    window.addEventListener("beforeunload", onBeforeUnloadHandler);
   };
   const disablePrevent = () => {
-    window.removeEventListener("beforeunload", listener);
+    window.removeEventListener("beforeunload", onBeforeUnloadHandler);
   };
   return { enablePrevent, disablePrevent };
 }

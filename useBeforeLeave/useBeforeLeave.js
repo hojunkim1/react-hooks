@@ -1,10 +1,12 @@
 export function useBeforeLeave(onBefore) {
   useEffect(() => {
-    const listener = (event) => {
+    const onMouseLeaveHandler = (event) => {
       const { clientY } = event;
       if (clientY <= 0) onBefore();
     };
-    document.addEventListener("mouseleave", listener);
-    return () => document.removeEventListener("mouseleave", listener);
+    document.addEventListener("mouseleave", onMouseLeaveHandler);
+    return () => {
+      document.removeEventListener("mouseleave", onMouseLeaveHandler);
+    };
   }, [onBefore]);
 }
