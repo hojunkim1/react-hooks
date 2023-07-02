@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 export function useInput(initValue, validator) {
   const [value, setValue] = useState(initValue);
 

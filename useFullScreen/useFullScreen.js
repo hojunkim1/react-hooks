@@ -1,3 +1,5 @@
+import { useRef } from "react";
+
 export function useFullScreen(callback) {
   const element = useRef();
 
